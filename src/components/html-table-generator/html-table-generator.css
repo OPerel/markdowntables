@@ -1,0 +1,13 @@
+.editor {
+  position: relative;
+  text-align: center;
+  margin: 2% 0;
+  padding: 10% 0;
+  border: 1px solid navy;
+}
+
+button {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+}

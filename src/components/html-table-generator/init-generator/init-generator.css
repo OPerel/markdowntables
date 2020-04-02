@@ -1,0 +1,13 @@
+form {
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  width: 30vw;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+label { 
+  margin-bottom: 5%;
+  width: 100%;
+}
