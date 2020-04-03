@@ -1,0 +1,32 @@
+@import '../../global/app.css';
+
+table {
+  /* margin: 5% auto; */
+  border: solid 1px navy;
+  border-collapse: collapse;
+
+  width: 100%;
+  height: 60vh;
+  table-layout: fixed;
+}
+
+table th, td {
+  border: solid 1px navy;
+  width: min-content;
+  text-align: center;
+}
+
+th {
+  height: 8vh;
+  background-color: #eee;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 1% 0;
+}
+
+.table-header h3 {
+  margin: 0;
+}

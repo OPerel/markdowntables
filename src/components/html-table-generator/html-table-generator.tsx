@@ -41,11 +41,12 @@ export class TableGenerator {
   render() {
     // console.log('gen table: ', this.table)
     // console.log('gen has matrix: ', this.hasMatrix)
-
+    const { columns, rows } = this.table.matrix;
     return (
       <div class="editor">
         
-        <h2>Start your table!</h2>
+        <h2>Edit your table&nbsp;</h2>
+        {this.hasMatrix && <span>&nbsp;Columns: {columns}, Rows: {rows}</span>}
         
         {!this.hasMatrix && <init-generator />}
         

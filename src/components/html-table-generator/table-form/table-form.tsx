@@ -56,13 +56,7 @@ export class Form {
   }
 
   render() {
-    // console.log('table form headers list: ', this._tableHeaders);
-    // console.log('table form current table: ', this._currentTable);
-    // console.log('table prop: ', this.table)
-
-    const { columns, rows } = this._matrix;
     return ([
-      <p>Columns: {columns}, Rows: {rows}</p>,
       <table>
 
         <thead>

@@ -2,10 +2,15 @@
   position: relative;
   text-align: center;
   margin: 2% 0;
-  padding: 10% 0;
+  padding: 4% 0;
   border: 1px solid navy;
 
   overflow: auto;
+}
+
+.editor h2 {
+  display: inline-block;
+  margin: 1% 0;
 }
 
 button {

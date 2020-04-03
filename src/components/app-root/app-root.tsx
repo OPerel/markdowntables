@@ -27,27 +27,29 @@ export class AppRoot {
   }
 
   render() {
-    return (
-      <div>
-        <header>
-          <h1>Table Generator</h1>
-        </header>
+    return ([
+      <header>
+        <h1>Table Generator</h1>
+      </header>,
 
-        <main>
+      <main class="container">
+        <div>
           <h2>Create a table:</h2>
           <button onClick={() => this.toggleTableGenerator(true)}>
             {this.table ? 'Edit table' : 'Click to start a table'}
           </button>
-          {
-            this.showTableGenerator
-              ? <html-table-generator
-                  close={() => this.toggleTableGenerator(false)}
-                  table={this.table}
-                />
-              : null  
-          }
-        </main>
-      </div>
-    );
+        </div>
+
+        {
+          this.showTableGenerator
+            ? <html-table-generator
+                close={() => this.toggleTableGenerator(false)}
+                table={this.table}
+              />
+            : (this.table && <html-table table={this.table}/>)  
+        }
+
+      </main>
+    ]);
   }
 }
