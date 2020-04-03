@@ -1,11 +1,8 @@
 @import '../../global/app.css';
 
 table {
-  /* margin: 5% auto; */
   border: solid 1px navy;
   border-collapse: collapse;
-
-  /* width: 100%; */
   min-width: -webkit-fill-available;
   height: 60vh;
   table-layout: fixed;
@@ -26,6 +23,7 @@ th {
 .table-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 1% 0;
 }
 

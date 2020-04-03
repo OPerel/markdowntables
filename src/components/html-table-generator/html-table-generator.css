@@ -1,21 +1,19 @@
 .editor {
   position: relative;
   text-align: center;
-  margin: 2% 0;
   padding: 4% 0;
   border: 1px solid navy;
 
-  /* overflow-y: auto; */
   overflow-x: auto;
 }
 
-.editor h2 {
+.editor .editor-header {
+  position: sticky;
+  left: 0;
+}
+
+.editor .editor-header h3 {
   display: inline-block;
   margin: 1% 0;
 }
 
-m-button {
-  position: absolute;
-  top: 2%;
-  right: 2%;
-}

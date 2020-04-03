@@ -10,7 +10,6 @@ button {
 button:hover {
   cursor: pointer;
   background-color: #7dc9c9a1;
-  /* border: 1px solid navy; */
 }
 
 button:focus {

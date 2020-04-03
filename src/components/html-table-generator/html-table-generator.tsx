@@ -12,7 +12,6 @@ export class TableGenerator {
   @State() hasMatrix: boolean;
 
   @Prop({ mutable: true }) table?: Table;
-  @Prop() close: () => void;
 
   @Listen('setMatrix')
   initTable(e: CustomEvent) {
@@ -36,17 +35,16 @@ export class TableGenerator {
     }
   }
 
-  handleChange() {}
-
   render() {
     // console.log('gen table: ', this.table)
-    // console.log('gen has matrix: ', this.hasMatrix)
     const { columns, rows } = this.table.matrix;
     return (
       <div class="editor">
         
-        <h2>Edit your table&nbsp;</h2>
-        {this.hasMatrix && <span>&nbsp;Columns: {columns}, Rows: {rows}</span>}
+        <div class="editor-header">
+          <h3>Edit your table&nbsp;</h3>
+          {this.hasMatrix && <span>&nbsp;Columns: {columns}, Rows: {rows}</span>}
+        </div>
         
         {!this.hasMatrix && <init-generator />}
         
@@ -56,8 +54,6 @@ export class TableGenerator {
             table={this.hasTable ? this.table : null}
           />
         }
-        
-        <m-button click={() => this.close()} text="Close"/>
       
       </div>
     );

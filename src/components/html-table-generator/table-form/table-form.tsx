@@ -18,12 +18,12 @@ export class Form {
 
   constructor() {
     if (this.table) {
-      console.log('editing existing table: ', this.table);
+      console.log('table-form - editing existing table: ', this.table);
       this._tableHeaders = this.table.tableHeaders;
       this._currentTable = this.table.currentTable;
       this._matrix = this.table.matrix;
     } else {
-      console.log('starting new table');
+      console.log('table-form - starting new table');
       this._tableHeaders = this.tableHeaderSkeleton();
       this._currentTable = this.tableBodySkeleton();
     }

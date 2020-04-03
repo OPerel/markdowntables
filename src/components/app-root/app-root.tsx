@@ -33,17 +33,17 @@ export class AppRoot {
       </header>,
 
       <main class="container">
-        <div>
-          <h2>Create a table:</h2>
-          <m-button click={() => this.toggleTableGenerator(true)} text={this.table ? 'Edit table' : 'Click to start a table'} />
+        <div class="start">
+          <m-button
+            click={() => this.toggleTableGenerator(true)}
+            text={this.table ? 'Edit table' : 'Click to start a table'}
+          />
+          {this.table && <p class="refresh">&nbsp;Refresh the page to start again.</p>}
         </div>
 
         {
           this.showTableGenerator
-            ? <html-table-generator
-                close={() => this.toggleTableGenerator(false)}
-                table={this.table}
-              />
+            ? <html-table-generator table={this.table} />
             : (this.table && <html-table table={this.table}/>)  
         }
 

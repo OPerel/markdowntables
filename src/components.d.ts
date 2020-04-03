@@ -17,7 +17,6 @@ export namespace Components {
     'table': Table;
   }
   interface HtmlTableGenerator {
-    'close': () => void;
     'table'?: Table;
   }
   interface InitGenerator {}
@@ -85,7 +84,6 @@ declare namespace LocalJSX {
     'table'?: Table;
   }
   interface HtmlTableGenerator {
-    'close'?: () => void;
     'table'?: Table;
   }
   interface InitGenerator {
