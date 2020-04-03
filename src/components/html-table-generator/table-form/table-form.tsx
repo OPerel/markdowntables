@@ -30,28 +30,24 @@ export class Form {
   }
 
   tableHeaderSkeleton(): string[] {
-    return Array.from(Array(this._matrix.columns)).map(_ => '')
+    return Array.from(Array(this._matrix.columns)).map(_ => '');
   }
 
   tableBodySkeleton(): string[][] {
     return Array.from(Array(this._matrix.rows)).map(_ => {
-      let rowObj = [];
-      for (let i = 0; i < this._matrix.columns; i++) {
-        rowObj.push('');
-      }
-      return rowObj;
-    })
+      return Array.from(Array(this._matrix.columns)).map(_ => '');
+    });
   }
 
   handleHeadersInput(e: Event, thIndex: number): void  {
     this._tableHeaders[thIndex] = (e.target as HTMLInputElement).value;
   }
 
-  handleBodyInput(e: Event, rowIndex: number, colIndex: number) {
+  handleBodyInput(e: Event, rowIndex: number, colIndex: number): void {
     this._currentTable[rowIndex][colIndex] = (e.target as HTMLInputElement).value;
   }
 
-  submitTable() {
+  submitTable(): void {
     this.editTable.emit({
       matrix: this._matrix,
       tableHeaders: this._tableHeaders,
@@ -60,9 +56,9 @@ export class Form {
   }
 
   render() {
-    console.log('table form headers list: ', this._tableHeaders);
-    console.log('table form current table: ', this._currentTable);
-    console.log('table prop: ', this.table)
+    // console.log('table form headers list: ', this._tableHeaders);
+    // console.log('table form current table: ', this._currentTable);
+    // console.log('table prop: ', this.table)
 
     const { columns, rows } = this._matrix;
     return ([
@@ -89,7 +85,7 @@ export class Form {
             return (
               <tr>
                 <td>{rowIndex}</td>
-                {this._currentTable[rowIndex].map((tableCell: string, colIndex: number) => {
+                {row.map((tableCell: string, colIndex: number) => {
                   return (
                     <td>
                       <input
