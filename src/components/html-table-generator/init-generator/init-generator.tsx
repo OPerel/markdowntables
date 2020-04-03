@@ -19,8 +19,8 @@ export class Generator {
     this.rows = Number((e.target as HTMLInputElement).value)
   }
 
-  onSubmit(e: Event) {
-    e.preventDefault();
+  onSubmit(): void {
+    // e.preventDefault();
     const { columns, rows } = this;
     if (columns < 1 || rows < 1 || columns === undefined || rows === undefined) {
       alert('Table matrix must consist of positive numbers only! Please try again');
@@ -42,7 +42,8 @@ export class Generator {
           <input type="number" value={this.rows} onInput={(e) => this.setRows(e)} required />
         </label>
         
-        <input type="submit" value="Submit" onClick={(e) => this.onSubmit(e)} />
+        <m-button click={() => this.onSubmit()} text="Submit" />
+        {/* <input type="submit" value="Submit" onClick={(e: Event) => this.onSubmit(e)} /> */}
       </form>
     );
   }

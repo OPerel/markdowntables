@@ -10,13 +10,15 @@ import { Table } from '../../types';
 export class HtmlTable {
   @Prop() table: Table;
 
+  generateMarkdown() {}
+
   render() {
     const { tableHeaders, currentTable } = this.table;
     return ([
       <div class="container">
         <div class="table-header">
           <h3>Your HTML table</h3>
-          <button>Generate Markdown</button>
+          <m-button click={() => this.generateMarkdown()} text="Generate Markdown" />
         </div>
         
         <table>

@@ -5,7 +5,8 @@ table {
   border: solid 1px navy;
   border-collapse: collapse;
 
-  width: 100%;
+  /* width: 100%; */
+  min-width: -webkit-fill-available;
   height: 60vh;
   table-layout: fixed;
 }
@@ -13,6 +14,7 @@ table {
 table th, td {
   border: solid 1px navy;
   width: min-content;
+  
   text-align: center;
 }
 

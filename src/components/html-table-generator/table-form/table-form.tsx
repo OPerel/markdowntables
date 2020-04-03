@@ -96,7 +96,7 @@ export class Form {
         </tbody>
 
       </table>,
-      <button onClick={() => this.submitTable()}>Submit Table!</button>
+      <m-button click={() => this.submitTable()} text="Submit Table!" />
     ]);
   }
 

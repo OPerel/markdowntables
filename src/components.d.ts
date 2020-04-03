@@ -21,6 +21,10 @@ export namespace Components {
     'table'?: Table;
   }
   interface InitGenerator {}
+  interface MButton {
+    'click': () => void;
+    'text': string;
+  }
   interface TableForm {
     '_matrix'?: { columns: number, rows: number };
     'table'?: Table;
@@ -54,6 +58,12 @@ declare global {
     new (): HTMLInitGeneratorElement;
   };
 
+  interface HTMLMButtonElement extends Components.MButton, HTMLStencilElement {}
+  var HTMLMButtonElement: {
+    prototype: HTMLMButtonElement;
+    new (): HTMLMButtonElement;
+  };
+
   interface HTMLTableFormElement extends Components.TableForm, HTMLStencilElement {}
   var HTMLTableFormElement: {
     prototype: HTMLTableFormElement;
@@ -64,6 +74,7 @@ declare global {
     'html-table': HTMLHtmlTableElement;
     'html-table-generator': HTMLHtmlTableGeneratorElement;
     'init-generator': HTMLInitGeneratorElement;
+    'm-button': HTMLMButtonElement;
     'table-form': HTMLTableFormElement;
   }
 }
@@ -80,6 +91,10 @@ declare namespace LocalJSX {
   interface InitGenerator {
     'onSetMatrix'?: (event: CustomEvent<any>) => void;
   }
+  interface MButton {
+    'click'?: () => void;
+    'text'?: string;
+  }
   interface TableForm {
     '_matrix'?: { columns: number, rows: number };
     'onEditTable'?: (event: CustomEvent<any>) => void;
@@ -91,6 +106,7 @@ declare namespace LocalJSX {
     'html-table': HtmlTable;
     'html-table-generator': HtmlTableGenerator;
     'init-generator': InitGenerator;
+    'm-button': MButton;
     'table-form': TableForm;
   }
 }
@@ -105,6 +121,7 @@ declare module "@stencil/core" {
       'html-table': LocalJSX.HtmlTable & JSXBase.HTMLAttributes<HTMLHtmlTableElement>;
       'html-table-generator': LocalJSX.HtmlTableGenerator & JSXBase.HTMLAttributes<HTMLHtmlTableGeneratorElement>;
       'init-generator': LocalJSX.InitGenerator & JSXBase.HTMLAttributes<HTMLInitGeneratorElement>;
+      'm-button': LocalJSX.MButton & JSXBase.HTMLAttributes<HTMLMButtonElement>;
       'table-form': LocalJSX.TableForm & JSXBase.HTMLAttributes<HTMLTableFormElement>;
     }
   }

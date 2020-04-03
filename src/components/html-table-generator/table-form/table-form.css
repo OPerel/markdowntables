@@ -1,3 +1,9 @@
 table {
   margin: 0 auto;
+  table-layout: fixed;
+}
+
+table input {
+  /* width: 95%; */
+  /* display: table-cell; */
 }

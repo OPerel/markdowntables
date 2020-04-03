@@ -35,9 +35,7 @@ export class AppRoot {
       <main class="container">
         <div>
           <h2>Create a table:</h2>
-          <button onClick={() => this.toggleTableGenerator(true)}>
-            {this.table ? 'Edit table' : 'Click to start a table'}
-          </button>
+          <m-button click={() => this.toggleTableGenerator(true)} text={this.table ? 'Edit table' : 'Click to start a table'} />
         </div>
 
         {

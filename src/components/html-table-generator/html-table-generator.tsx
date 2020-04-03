@@ -57,7 +57,7 @@ export class TableGenerator {
           />
         }
         
-        <button onClick={() => this.close()}>Close</button>
+        <m-button click={() => this.close()} text="Close"/>
       
       </div>
     );
