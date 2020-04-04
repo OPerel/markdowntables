@@ -1,8 +1,3 @@
-/**
- * TODOs:
- * entering numbers directly in init inputs doesnt work 
- */
-
 import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
 
 @Component({
@@ -15,19 +10,30 @@ export class Generator {
 
   @Event() setMatrix: EventEmitter;
 
-  setColumns(e: Event): void {
-    const value = Number((e.target as HTMLInputElement).value);
-    if (this.validateMatrix(value)) {
-      this.matrix.columns = value;
+
+  addColumn(): void {
+    this.matrix.columns++;
+    const { columns, rows } = this.matrix;
+    this.setMatrix.emit({ columns, rows });
+  }
+
+  deleteColumn(): void {
+    if (this.validateMatrix(this.matrix.columns - 1)) {
+      this.matrix.columns--;
       const { columns, rows } = this.matrix;
       this.setMatrix.emit({ columns, rows });
     }
   }
 
-  setRows(e: Event): void {
-    const value = Number((e.target as HTMLInputElement).value);
-    if (this.validateMatrix(value)) {
-      this.matrix.rows = value;
+  addRows(): void {
+    this.matrix.rows++;
+    const { columns, rows } = this.matrix;
+    this.setMatrix.emit({ columns, rows });
+  }
+
+  deleteRows(): void {
+    if (this.validateMatrix(this.matrix.rows - 1)) {
+      this.matrix.rows--;
       const { columns, rows } = this.matrix;
       this.setMatrix.emit({ columns, rows });
     }
@@ -42,17 +48,21 @@ export class Generator {
   }
 
   render() {
-    const { columns, rows } = this.matrix;
+    const btnStyles = { fontSize: '1.5rem', padding: '0% 2%' }
     return (
       <form>
         <label>
-          # of columns: &nbsp;
-          <input type="number" value={columns} onInput={(e) => this.setColumns(e)} />
+          <span># of columns: &nbsp;</span>
+          <m-button click={() => this.addColumn()} text="+" styles={btnStyles} />
+          &nbsp;
+          <m-button click={() => this.deleteColumn()} text="&minus;" styles={btnStyles} />
         </label>
 
         <label>
           # of rows: &nbsp;
-          <input type="number" value={rows} onInput={(e) => this.setRows(e)} />
+          <m-button click={() => this.addRows()} text="+" styles={btnStyles} />
+          &nbsp;
+          <m-button click={() => this.deleteRows()} text="&minus;" styles={btnStyles} />
         </label>
       </form>
     );

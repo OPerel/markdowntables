@@ -38,7 +38,7 @@ export class Preview {
     return (
       <div class="preview">
         <p>Your Markdown string:</p>&nbsp;
-        <button onClick={() => this.copyToClipboard()}>&#10002; Copy to clipboard</button>&nbsp;
+        <button onClick={() => this.copyToClipboard()}>&#10002; Copy to clipboard</button>&nbsp;&nbsp;
         {this.copied && <span>&#10003; Copied</span>}
         <pre>
           <code id="preview">{this.md()}</code>

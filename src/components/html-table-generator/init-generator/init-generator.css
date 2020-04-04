@@ -5,6 +5,7 @@ form {
   padding: 2% 0;
 
   background-color: #6ea3a3;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
 label { 
@@ -13,5 +14,5 @@ label {
 
 input {
   width: 30%;
-} 
+}
 

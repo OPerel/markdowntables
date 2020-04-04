@@ -21,6 +21,7 @@ export namespace Components {
   }
   interface MButton {
     'click': () => void;
+    'styles': any;
     'text': string;
   }
   interface MdPreview {
@@ -90,6 +91,7 @@ declare namespace LocalJSX {
   }
   interface MButton {
     'click'?: () => void;
+    'styles'?: any;
     'text'?: string;
   }
   interface MdPreview {

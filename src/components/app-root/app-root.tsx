@@ -1,3 +1,11 @@
+/**
+ * TODOs:
+ * refactor setting matrix
+ * responsive
+ * preview rendered md
+ * 
+ */
+
 import { Component, h, State, Listen } from '@stencil/core';
 
 import { Table } from '../../types';

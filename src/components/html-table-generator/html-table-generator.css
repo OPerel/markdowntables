@@ -3,7 +3,7 @@
   text-align: center;
   padding: 4% 0;
   background-color: #b7e2c6;
-
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   overflow-x: auto;
 }
 
