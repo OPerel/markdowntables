@@ -9,44 +9,38 @@ import { Table } from '../../types';
 })
 export class AppRoot {
   @State() table: Table;
-  @State() showTableGenerator: boolean;
+
+  constructor() {
+    this.table = {
+      columns: 3,
+      rows: 5,
+      tableHeaders: [],
+      currentTable: []
+    };
+    console.log('Init empty table: ', this.table);
+  }
 
   @Listen('editTable')
   setTableContent(e: CustomEvent): void {
     console.log('table edited: ', e.detail);
-    this.table = e.detail;
-    this.toggleTableGenerator(false);
+    this.table = { ...this.table, ...e.detail };
   }
 
-  constructor() {
-    this.showTableGenerator = false;
-  }
-
-  toggleTableGenerator = (set: boolean): void => {
-    this.showTableGenerator = set;
+  @Listen('setMatrix')
+  setTableMatrix(e: CustomEvent) {
+    console.log('set matrix: ', e.detail);
+    this.table = {  ...this.table, ...e.detail };
   }
 
   render() {
+    // console.log('root table: ', this.table)
     return ([
       <header>
-        <h1>Table Generator</h1>
+        <h1>Markdown Table Generator</h1>
       </header>,
 
       <main class="container">
-        <div class="start">
-          <m-button
-            click={() => this.toggleTableGenerator(true)}
-            text={this.table ? 'Edit table' : 'Click to start a table'}
-          />
-          {this.table && <p class="refresh">&nbsp;Refresh the page to start again.</p>}
-        </div>
-
-        {
-          this.showTableGenerator
-            ? <html-table-generator table={this.table} />
-            : (this.table && <html-table table={this.table}/>)  
-        }
-
+        <html-table-generator table={this.table} />
       </main>
     ]);
   }

@@ -15,12 +15,3 @@ h1 {
   color: #fff;
   padding: 0 12px;
 }
-
-.start {
-  display: flex;
-  justify-content: space-evenly;
-  margin: 2% 0;
-  padding: 2% 0;
-
-  background-color: azure;
-}

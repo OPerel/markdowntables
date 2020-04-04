@@ -1,4 +1,4 @@
-import { Component, h, State, Event, EventEmitter } from '@stencil/core';
+import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'init-generator',
@@ -6,44 +6,49 @@ import { Component, h, State, Event, EventEmitter } from '@stencil/core';
   shadow: true
 })
 export class Generator {
-  @State() columns: number;
-  @State() rows: number;
+  @Prop({ mutable: true }) matrix: { columns: number, rows: number };
 
   @Event() setMatrix: EventEmitter;
 
-  setColumns(e: Event) {
-    this.columns = Number((e.target as HTMLInputElement).value)
+  setColumns(e: Event): void {
+    const value = Number((e.target as HTMLInputElement).value);
+    if (this.validateMatrix(value)) {
+      this.matrix.columns = value;
+      const { columns, rows } = this.matrix;
+      this.setMatrix.emit({ columns, rows });
+    }
   }
 
-  setRows(e: Event) {
-    this.rows = Number((e.target as HTMLInputElement).value)
+  setRows(e: Event): void {
+    const value = Number((e.target as HTMLInputElement).value);
+    if (this.validateMatrix(value)) {
+      this.matrix.rows = value;
+      const { columns, rows } = this.matrix;
+      this.setMatrix.emit({ columns, rows });
+    }
   }
 
-  onSubmit(): void {
-    // e.preventDefault();
-    const { columns, rows } = this;
-    if (columns < 1 || rows < 1 || columns === undefined || rows === undefined) {
+  validateMatrix(value: number): boolean | void {
+    if (value < 1 || value === undefined) {
       alert('Table matrix must consist of positive numbers only! Please try again');
       throw new Error('Invalid input');
     }
-    this.setMatrix.emit({ columns, rows })
+    return true;
   }
 
   render() {
+    const { columns, rows } = this.matrix;
     return (
       <form>
         <label>
-          Eneter # of columns:
-          <input type="number" value={this.columns} onInput={(e) => this.setColumns(e)} required />
+          # of columns: &nbsp;
+          <input type="number" value={columns} onInput={(e) => this.setColumns(e)} />
         </label>
 
         <label>
-          Enetr # of rows:
-          <input type="number" value={this.rows} onInput={(e) => this.setRows(e)} required />
+          # of rows: &nbsp;
+          <input type="number" value={rows} onInput={(e) => this.setRows(e)} />
         </label>
-        
-        <m-button click={() => this.onSubmit()} text="Submit" />
-        {/* <input type="submit" value="Submit" onClick={(e: Event) => this.onSubmit(e)} /> */}
       </form>
     );
   }

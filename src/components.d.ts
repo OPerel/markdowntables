@@ -17,16 +17,17 @@ export namespace Components {
     'table': Table;
   }
   interface HtmlTableGenerator {
-    'table'?: Table;
+    'table': Table;
   }
-  interface InitGenerator {}
+  interface InitGenerator {
+    'matrix': { columns: number, rows: number };
+  }
   interface MButton {
     'click': () => void;
     'text': string;
   }
   interface TableForm {
-    '_matrix'?: { columns: number, rows: number };
-    'table'?: Table;
+    'table': Table;
   }
 }
 
@@ -87,6 +88,7 @@ declare namespace LocalJSX {
     'table'?: Table;
   }
   interface InitGenerator {
+    'matrix'?: { columns: number, rows: number };
     'onSetMatrix'?: (event: CustomEvent<any>) => void;
   }
   interface MButton {
@@ -94,7 +96,6 @@ declare namespace LocalJSX {
     'text'?: string;
   }
   interface TableForm {
-    '_matrix'?: { columns: number, rows: number };
     'onEditTable'?: (event: CustomEvent<any>) => void;
     'table'?: Table;
   }

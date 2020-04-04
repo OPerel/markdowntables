@@ -1,18 +1,17 @@
 form {
   display: flex;
-  /* justify-content: center; */
-  flex-direction: column;
-  width: 25vw;
-  margin: 0 auto;
-  align-items: stretch;
+  /* justify-content: space-evenly; */
+  margin: 2% 0;
+  padding: 2% 0;
+
+  background-color: #6ea3a3;
 }
 
 label { 
-  margin-bottom: 5%;
-  width: 100%;
+  width: 30%;
 }
 
 input {
-  display: block;
-  width: 100%;
-}
+  width: 30%;
+} 
+
