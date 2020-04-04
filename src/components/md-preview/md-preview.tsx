@@ -1,4 +1,4 @@
-import { Component, h, Prop, Element } from '@stencil/core';
+import { Component, h, State, Prop, Element, Watch } from '@stencil/core';
 
 @Component({
   tag: 'md-preview',
@@ -7,7 +7,19 @@ import { Component, h, Prop, Element } from '@stencil/core';
 })
 export class Preview {
   @Element() el: HTMLElement;
+
+  @State() copied: boolean;
+
   @Prop() md: () => void;
+
+  constructor() {
+    this.copied = false;
+  }
+
+  @Watch('md')
+  onGenerateMd() {
+    this.copied = false;
+  }
 
   copyToClipboard(): void {
     let copyText = this.el.shadowRoot.getElementById("preview");
@@ -17,13 +29,17 @@ export class Preview {
     textArea.select();
     document.execCommand("Copy");
     textArea.remove();
+
+    this.copied = true;
+    console.log('copy to clipboard');
   }
 
   render() {
     return (
-      <div>
-        <span>Your Markdown string:</span>&nbsp;
-        <button onClick={() => this.copyToClipboard()}>Copy to clipboard</button>
+      <div class="preview">
+        <p>Your Markdown string:</p>&nbsp;
+        <button onClick={() => this.copyToClipboard()}>&#10002; Copy to clipboard</button>&nbsp;
+        {this.copied && <span>&#10003; Copied</span>}
         <pre>
           <code id="preview">{this.md()}</code>
         </pre>

@@ -6,3 +6,13 @@ pre {
 
   overflow: auto;
 }
+
+.preview {
+  margin: 2% 0;
+  padding: 2%;
+  background-color: #b7e2c6;
+}
+  
+.preview p {
+  margin: 1.5% 0;
+}

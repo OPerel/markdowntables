@@ -1,3 +1,8 @@
+/**
+ * TODOs:
+ * entering numbers directly in init inputs doesnt work 
+ */
+
 import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
 
 @Component({
