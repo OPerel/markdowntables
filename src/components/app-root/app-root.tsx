@@ -2,6 +2,8 @@ import { Component, h, State, Listen } from '@stencil/core';
 
 import { Table } from '../../types';
 
+import mdStrGenerator from '../../utils/generateMD';
+
 @Component({
   tag: 'app-root',
   styleUrl: 'app-root.css',
@@ -41,6 +43,11 @@ export class AppRoot {
 
       <main class="container">
         <html-table-generator table={this.table} />
+
+    <p>Your Markdown string:</p>
+        {this.table.tableHeaders.length ? <pre>
+          <code>{mdStrGenerator(this.table)}</code>
+        </pre> : null}
       </main>
     ]);
   }
