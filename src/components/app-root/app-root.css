@@ -15,12 +15,3 @@ h1 {
   color: #fff;
   padding: 0 12px;
 }
-
-pre {
-  border-radius: 5px;
-  padding: 2%;
-  margin: 2% 0;
-  background-color: #ededed;
-
-  overflow: auto;
-}

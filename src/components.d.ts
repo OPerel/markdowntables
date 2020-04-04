@@ -23,6 +23,9 @@ export namespace Components {
     'click': () => void;
     'text': string;
   }
+  interface MdPreview {
+    'md': () => void;
+  }
   interface TableForm {
     'table': Table;
   }
@@ -55,6 +58,12 @@ declare global {
     new (): HTMLMButtonElement;
   };
 
+  interface HTMLMdPreviewElement extends Components.MdPreview, HTMLStencilElement {}
+  var HTMLMdPreviewElement: {
+    prototype: HTMLMdPreviewElement;
+    new (): HTMLMdPreviewElement;
+  };
+
   interface HTMLTableFormElement extends Components.TableForm, HTMLStencilElement {}
   var HTMLTableFormElement: {
     prototype: HTMLTableFormElement;
@@ -65,6 +74,7 @@ declare global {
     'html-table-generator': HTMLHtmlTableGeneratorElement;
     'init-generator': HTMLInitGeneratorElement;
     'm-button': HTMLMButtonElement;
+    'md-preview': HTMLMdPreviewElement;
     'table-form': HTMLTableFormElement;
   }
 }
@@ -82,6 +92,9 @@ declare namespace LocalJSX {
     'click'?: () => void;
     'text'?: string;
   }
+  interface MdPreview {
+    'md'?: () => void;
+  }
   interface TableForm {
     'onEditTable'?: (event: CustomEvent<any>) => void;
     'table'?: Table;
@@ -92,6 +105,7 @@ declare namespace LocalJSX {
     'html-table-generator': HtmlTableGenerator;
     'init-generator': InitGenerator;
     'm-button': MButton;
+    'md-preview': MdPreview;
     'table-form': TableForm;
   }
 }
@@ -106,6 +120,7 @@ declare module "@stencil/core" {
       'html-table-generator': LocalJSX.HtmlTableGenerator & JSXBase.HTMLAttributes<HTMLHtmlTableGeneratorElement>;
       'init-generator': LocalJSX.InitGenerator & JSXBase.HTMLAttributes<HTMLInitGeneratorElement>;
       'm-button': LocalJSX.MButton & JSXBase.HTMLAttributes<HTMLMButtonElement>;
+      'md-preview': LocalJSX.MdPreview & JSXBase.HTMLAttributes<HTMLMdPreviewElement>;
       'table-form': LocalJSX.TableForm & JSXBase.HTMLAttributes<HTMLTableFormElement>;
     }
   }

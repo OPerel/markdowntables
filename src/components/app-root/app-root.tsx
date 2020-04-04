@@ -48,11 +48,8 @@ export class AppRoot {
       <main class="container">
         <html-table-generator table={this.table} />
 
-        <p>Your Markdown string:</p>
         {this.table.tableHeaders.length
-          ? <pre>
-              <code>{this.strGenerator.getMdString()}</code>
-            </pre>
+          ? <md-preview md={() => this.strGenerator.getMdString()} />
           : null}
       </main>
     ]);
