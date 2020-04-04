@@ -1,4 +1,4 @@
-import { Component, h, Prop, State, Event, EventEmitter, Watch } from '@stencil/core';
+import { Component, h, Prop, State, Event, EventEmitter, Watch, Element } from '@stencil/core';
 
 import { Table } from '../../../types';
 
@@ -8,6 +8,8 @@ import { Table } from '../../../types';
   shadow: true
 })
 export class Form {
+  @Element() form: HTMLElement;
+
   @State() _tableHeaders: string[];
   @State() _currentTable: string[][];
   @State() _matrix: { columns: number, rows: number };
@@ -76,10 +78,14 @@ export class Form {
     })
   }
 
+  scrollForm(): void {
+    console.log('toggle')
+    this.form.shadowRoot.querySelector('table').classList.toggle('scroll-form')
+  }
+
   render() {
     return ([
       <table>
-
         <thead>
           <th>Headers</th>
           {this._tableHeaders.map((header: string, thIndex: number) => {
@@ -115,9 +121,14 @@ export class Form {
             )
           })}
         </tbody>
-
       </table>,
-      <m-button click={() => this.submitTable()} text="Generate Markdown" />
+
+      <m-button click={() => this.submitTable()} text="Generate Markdown" />,
+
+      <p>
+        <input type="checkbox" onClick={() => this.scrollForm()} />
+        Scroll form horizontally
+      </p>
     ]);
   }
 

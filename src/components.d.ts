@@ -13,9 +13,6 @@ import {
 
 export namespace Components {
   interface AppRoot {}
-  interface HtmlTable {
-    'table': Table;
-  }
   interface HtmlTableGenerator {
     'table': Table;
   }
@@ -38,12 +35,6 @@ declare global {
   var HTMLAppRootElement: {
     prototype: HTMLAppRootElement;
     new (): HTMLAppRootElement;
-  };
-
-  interface HTMLHtmlTableElement extends Components.HtmlTable, HTMLStencilElement {}
-  var HTMLHtmlTableElement: {
-    prototype: HTMLHtmlTableElement;
-    new (): HTMLHtmlTableElement;
   };
 
   interface HTMLHtmlTableGeneratorElement extends Components.HtmlTableGenerator, HTMLStencilElement {}
@@ -71,7 +62,6 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'app-root': HTMLAppRootElement;
-    'html-table': HTMLHtmlTableElement;
     'html-table-generator': HTMLHtmlTableGeneratorElement;
     'init-generator': HTMLInitGeneratorElement;
     'm-button': HTMLMButtonElement;
@@ -81,9 +71,6 @@ declare global {
 
 declare namespace LocalJSX {
   interface AppRoot {}
-  interface HtmlTable {
-    'table'?: Table;
-  }
   interface HtmlTableGenerator {
     'table'?: Table;
   }
@@ -102,7 +89,6 @@ declare namespace LocalJSX {
 
   interface IntrinsicElements {
     'app-root': AppRoot;
-    'html-table': HtmlTable;
     'html-table-generator': HtmlTableGenerator;
     'init-generator': InitGenerator;
     'm-button': MButton;
@@ -117,7 +103,6 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'app-root': LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
-      'html-table': LocalJSX.HtmlTable & JSXBase.HTMLAttributes<HTMLHtmlTableElement>;
       'html-table-generator': LocalJSX.HtmlTableGenerator & JSXBase.HTMLAttributes<HTMLHtmlTableGeneratorElement>;
       'init-generator': LocalJSX.InitGenerator & JSXBase.HTMLAttributes<HTMLInitGeneratorElement>;
       'm-button': LocalJSX.MButton & JSXBase.HTMLAttributes<HTMLMButtonElement>;
