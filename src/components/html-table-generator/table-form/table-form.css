@@ -1,6 +1,30 @@
 table {
   margin: 0 auto;
   table-layout: fixed;
+  border-collapse: collapse;
+}
+
+table th, td {
+  border: 1px solid #000;
+  /* padding: 5px; */
+}
+
+table th {
+  background-color: #eee;
+}
+
+table input {
+  border: none;
+  border-radius: 2px;
+  padding: 3px 0;
+  margin-bottom: 4px;
+  width: 95%;
+  background-color: #00000000;
+}
+
+table input:focus {
+  background-color: #00000022;
+  outline: none;
 }
 
 m-button {
