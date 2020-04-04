@@ -21,4 +21,6 @@ pre {
   padding: 2%;
   margin: 2% 0;
   background-color: #ededed;
+
+  overflow: auto;
 }

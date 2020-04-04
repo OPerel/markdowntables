@@ -2,7 +2,7 @@ import { Component, h, State, Listen } from '@stencil/core';
 
 import { Table } from '../../types';
 
-import mdStrGenerator from '../../utils/generateMD';
+import { MdStringGenerator } from '../../utils/generateMD';
 
 @Component({
   tag: 'app-root',
@@ -12,6 +12,8 @@ import mdStrGenerator from '../../utils/generateMD';
 export class AppRoot {
   @State() table: Table;
 
+  strGenerator: MdStringGenerator;
+
   constructor() {
     this.table = {
       columns: 3,
@@ -19,6 +21,7 @@ export class AppRoot {
       tableHeaders: [],
       currentTable: []
     };
+    
     console.log('Init empty table: ', this.table);
   }
 
@@ -26,6 +29,7 @@ export class AppRoot {
   setTableContent(e: CustomEvent): void {
     console.log('table edited: ', e.detail);
     this.table = { ...this.table, ...e.detail };
+    this.strGenerator = new MdStringGenerator(this.table);
   }
 
   @Listen('setMatrix')
@@ -44,10 +48,12 @@ export class AppRoot {
       <main class="container">
         <html-table-generator table={this.table} />
 
-    <p>Your Markdown string:</p>
-        {this.table.tableHeaders.length ? <pre>
-          <code>{mdStrGenerator(this.table)}</code>
-        </pre> : null}
+        <p>Your Markdown string:</p>
+        {this.table.tableHeaders.length
+          ? <pre>
+              <code>{this.strGenerator.getMdString()}</code>
+            </pre>
+          : null}
       </main>
     ]);
   }
