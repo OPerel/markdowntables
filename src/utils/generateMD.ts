@@ -15,7 +15,7 @@ export class MdStringGenerator {
 
   // add headers row
   tableHeaders.forEach((header: string, colIdx: number) => {
-    mdString += `${this.formatedCell(header, colIdx)} `;
+    mdString += `${this.formatedCell(header, colIdx)}`;
   });
 
   mdString += '|\n';
@@ -33,7 +33,7 @@ export class MdStringGenerator {
 
     // iterate over cols in row
     row.forEach((col: string, colIdx: number) => {
-      mdString += `${this.formatedCell(col, colIdx)} `;
+      mdString += `${this.formatedCell(col, colIdx)}`;
     });
 
     // end each row with a pipe and a new line
@@ -50,16 +50,16 @@ export class MdStringGenerator {
     if (colWidth && value.length) {
       const valMargin = Array.from(Array(Math.floor(marginLength / 2))).map(_ => ' ').join('');
       if (marginLength % 2 !== 0) {
-        return `| ${valMargin + value + valMargin} `;
+        return `| ${valMargin + value + valMargin}  `;
       }
-      return `| ${valMargin + value + valMargin}`;
+      return `| ${valMargin + value + valMargin} `;
     }
 
     if (colWidth) {
-      return `| ${Array.from(Array(colWidth)).map(_ => ' ').join('')}`;
+      return `| ${Array.from(Array(colWidth)).map(_ => ' ').join('')} `;
     }
 
-    return '|    ';
+    return '|     ';
   }
 
   private getLongestValInCol = (colIndex: number): number => {

@@ -79,7 +79,7 @@ export class Form {
   }
 
   scrollForm(): void {
-    console.log('toggle')
+    console.log('toggle scrolling')
     this.form.shadowRoot.querySelector('table').classList.toggle('scroll-form')
   }
 

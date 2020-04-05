@@ -48,7 +48,7 @@ export class Generator {
   }
 
   render() {
-    const btnStyles = { fontSize: '1.5rem', padding: '0% 2%' }
+    const btnStyles = { fontSize: '1.5rem', padding: '0% 2%' };
     return (
       <form>
         <label>
