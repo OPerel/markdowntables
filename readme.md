@@ -19,3 +19,5 @@ To build the app for production, run:
 ```bash
 npm run build
 ```
+
+Check it out live [here](https://modest-lamport-f281ff.netlify.com/)
