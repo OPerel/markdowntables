@@ -20,7 +20,7 @@ export namespace Components {
     'matrix': { columns: number, rows: number };
   }
   interface MButton {
-    'click': () => void;
+    'btnClick': () => void;
     'styles': any;
     'text': string;
   }
@@ -90,7 +90,7 @@ declare namespace LocalJSX {
     'onSetMatrix'?: (event: CustomEvent<any>) => void;
   }
   interface MButton {
-    'click'?: () => void;
+    'btnClick'?: () => void;
     'styles'?: any;
     'text'?: string;
   }

@@ -6,13 +6,13 @@ import { Component, h, Prop } from '@stencil/core';
   shadow: true
 })
 export class Button {
-  @Prop() click: () => void;
+  @Prop() btnClick: () => void;
   @Prop() text: string;
   @Prop() styles: any;
 
   render() {
     return (
-    <button onClick={() => this.click()} style={{ ...this.styles }}>{this.text}</button>
+    <button onClick={() => this.btnClick()} style={{ ...this.styles }}>{this.text}</button>
     );
   }
 

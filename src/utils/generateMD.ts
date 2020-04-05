@@ -21,7 +21,7 @@ export class MdStringGenerator {
   mdString += '|\n';
 
   // hyphens for headers
-  tableHeaders.forEach((h: string, colIdx: number) => {
+  tableHeaders.forEach((_, colIdx: number) => {
     const l = this.getLongestValInCol(colIdx);
     mdString += l > 0 ? `| ${Array.from(Array(l)).map(_ => '-').join('')} ` : `| --- `;
   });

@@ -53,16 +53,16 @@ export class Generator {
       <form>
         <label>
           <span># of columns: &nbsp;</span>
-          <m-button click={() => this.addColumn()} text="+" styles={btnStyles} />
+          <m-button btnClick={() => this.addColumn()} text="+" styles={btnStyles} />
           &nbsp;
-          <m-button click={() => this.deleteColumn()} text="&minus;" styles={btnStyles} />
+          <m-button btnClick={() => this.deleteColumn()} text="&minus;" styles={btnStyles} />
         </label>
 
         <label>
           # of rows: &nbsp;
-          <m-button click={() => this.addRows()} text="+" styles={btnStyles} />
+          <m-button btnClick={() => this.addRows()} text="+" styles={btnStyles} />
           &nbsp;
-          <m-button click={() => this.deleteRows()} text="&minus;" styles={btnStyles} />
+          <m-button btnClick={() => this.deleteRows()} text="&minus;" styles={btnStyles} />
         </label>
       </form>
     );

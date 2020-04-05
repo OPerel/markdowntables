@@ -123,7 +123,7 @@ export class Form {
         </tbody>
       </table>,
 
-      <m-button click={() => this.submitTable()} text="Generate Markdown" />,
+      <m-button btnClick={() => this.submitTable()} text="Generate Markdown" />,
 
       <p>
         <input type="checkbox" onClick={() => this.scrollForm()} />
