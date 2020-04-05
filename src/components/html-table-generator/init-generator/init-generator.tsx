@@ -18,10 +18,14 @@ export class Generator {
   }
 
   deleteColumn(): void {
-    if (this.validateMatrix(this.matrix.columns - 1)) {
-      this.matrix.columns--;
-      const { columns, rows } = this.matrix;
-      this.setMatrix.emit({ columns, rows });
+    try {
+      if (this.validateMatrix(this.matrix.columns - 1)) {
+        this.matrix.columns--;
+        const { columns, rows } = this.matrix;
+        this.setMatrix.emit({ columns, rows });
+      }
+    } catch (err) {
+      console.warn('Cannot delete column: ', err);
     }
   }
 
@@ -32,17 +36,21 @@ export class Generator {
   }
 
   deleteRows(): void {
-    if (this.validateMatrix(this.matrix.rows - 1)) {
-      this.matrix.rows--;
-      const { columns, rows } = this.matrix;
-      this.setMatrix.emit({ columns, rows });
+    try {
+      if (this.validateMatrix(this.matrix.rows - 1)) {
+        this.matrix.rows--;
+        const { columns, rows } = this.matrix;
+        this.setMatrix.emit({ columns, rows });
+      }
+    } catch (err) {
+      console.warn('Cannot delete row: ', err);
     }
   }
 
   validateMatrix(value: number): boolean | void {
-    if (value < 1 || value === undefined) {
-      alert('Table matrix must consist of positive numbers only! Please try again');
-      throw new Error('Invalid input');
+    if (value < 1) {
+      alert('Table matrix must consist of positive numbers only.');
+      throw Error(`Invalid input: ${value}`);
     }
     return true;
   }

@@ -85,6 +85,11 @@ export class Form {
 
   render() {
     return ([
+      <p>
+        <input type="checkbox" value="" onClick={() => this.scrollForm()} />
+        Scroll form horizontally
+      </p>,
+      
       <table>
         <thead>
           <th>Headers</th>
@@ -123,12 +128,7 @@ export class Form {
         </tbody>
       </table>,
 
-      <m-button btnClick={() => this.submitTable()} text="Generate Markdown" />,
-
-      <p>
-        <input type="checkbox" onClick={() => this.scrollForm()} />
-        Scroll form horizontally
-      </p>
+      <m-button btnClick={() => this.submitTable()} text="Generate Markdown" />
     ]);
   }
 
